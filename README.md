@@ -30,4 +30,4 @@ Launches the test runner in the interactive watch mode.\
 
 ## `npm run lint`
 
-It allows you to review the code and show you, if there are any, any errors in it.
+It allows you to review the code and show you if there are any errors in it.
