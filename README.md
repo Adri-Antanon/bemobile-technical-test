@@ -2,6 +2,12 @@
 
 This is a technical test in which I have to create a small mobile sales store
 
+# Quick start
+
+1.  Clone this repo using `git clone https://github.com/Adri-Antanon/bemobile-technical-test.git`
+2.  Move to the appropriate directory: `cd bemobile/ & npm i` in order to install dependencies.
+3.  Run `npm start` to see the example app at `http://localhost:3000`.
+
 
 # Scripts
 
