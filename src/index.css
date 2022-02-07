@@ -1,3 +1,14 @@
+:root{
+  --blue-900: #008080;
+  --blue-500: #88dfdf;
+  --blue-100: #e6fcfc;
+  --grey-900: #7f8383;
+  --green-500: rgb(202, 243, 141);
+  --green-300: #d5e8d4;
+  --green-100: #f2f8f2;
+
+}
+
 html {
   font-size: 62.5%;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 import products from '../../products.json';
 import LoadingSpinner from '../UI/LoadingSpinner';
@@ -8,9 +8,16 @@ import ProductListItem from './ProductListItem';
 
 const ProductList = () => {
   const [productList, setProductList] = useState([]);
+  const [search, setSearch] = useState('');
+
+  const searchInput = useRef(null);
 
   useEffect(() => {
     setProductList(products);
+  }, []);
+
+  const handleSearch = useCallback(() => {
+    setSearch(searchInput.current.value);
   }, []);
 
   if (productList.length === 0) {
@@ -24,11 +31,20 @@ const ProductList = () => {
   }
 
   return (
-    <section className={styles.productList}>
-      {productList.map((product) => (
-        <ProductListItem key={product.id} product={product} />
-      ))}
-    </section>
+    <>
+      <input
+        ref={searchInput}
+        type="text"
+        value={search}
+        onChange={handleSearch}
+        placeholder="Search..."
+      />
+      <section className={styles.productList}>
+        {productList.map((product) => (
+          <ProductListItem key={product.id} product={product} />
+        ))}
+      </section>
+    </>
   );
 };
 
