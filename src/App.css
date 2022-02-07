@@ -3,6 +3,6 @@
 }
 
 .ProductList{
-  background-color: rgb(202, 243, 141);;
+  background-color: var(--green-500);
   height: 100%;
 }

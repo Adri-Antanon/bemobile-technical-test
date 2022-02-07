@@ -19,5 +19,7 @@ module.exports = {
     'react/function-component-definition': 'off',
     'react/prop-types': 'off',
     'object-curly-newline': 'off',
+    'function-paren-newline': 'off',
+    'implicit-arrow-linebreak': 'off',
   },
 };

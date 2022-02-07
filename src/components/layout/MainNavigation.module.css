@@ -4,7 +4,7 @@
   padding: 0 5%;
   align-items: center;
   flex-direction: column;
-  background-color: #008080;
+  background-color: var(--blue-900);
 }
 
 .header div:first-child {
@@ -22,13 +22,13 @@
 
 .logo a {
   text-decoration: none;
-  color: #88dfdf;
+  color: var(--blue-500);
 }
 
 .logo a:hover,
 .logo a:active,
 .logo a.active {
-  color: #e6fcfc;
+  color: var(--blue-100);
 }
 
 .breadcrumb ul {
@@ -39,7 +39,7 @@
   text-align: center;
 }
 .breadcrumb {
-  background-color: #7f8383;
+  background-color: var(--grey-900);
   border-radius: 5%;
   display: flex;
   justify-content: center;
@@ -53,13 +53,13 @@
 
 .breadcrumb a {
   text-decoration: none;
-  color: #88dfdf;
+  color: var(--blue-500);
 }
 
 .breadcrumb a:hover,
 .breadcrumb a:active,
 .breadcrumb a.active {
-  color: #e6fcfc;
+  color: var(--blue-100);
 }
 
 .nav {
@@ -76,7 +76,7 @@
 }
 
 .nav p {
-  color: #88dfdf;
+  color: var(--blue-500);
   margin: 0;
   padding: 0;
 }
