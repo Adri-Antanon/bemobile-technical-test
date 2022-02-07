@@ -1,29 +1,67 @@
 .header {
-    height: 8rem;
-    display: flex;
-    padding: 0 10%;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #008080;
-  }
-  
-  .logo {
-    font-size: 3.2rem;
-    color: white;
-  }
+  height: 8rem;
+  display: flex;
+  padding: 0 5%;
+  align-items: center;
+  flex-direction: column;
+  background-color: #008080;
+}
 
-  .logo a {
-    text-decoration: none;
-    color: #88dfdf;
-  }
+.header div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
 
-  .nav p{
-    color: white;
-  }
-  
-  .logo a:hover,
-  .logo a:active,
-  .logo a.active {
-    color: #e6fcfc;
-  }
-  
+.logo {
+  font-size: 3.2rem;
+  color: white;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #88dfdf;
+}
+
+.nav p {
+  color: white;
+}
+
+.logo a:hover,
+.logo a:active,
+.logo a.active {
+  color: #e6fcfc;
+}
+
+.breadcrumb ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.breadcrumb{
+  /* margin: 1rem; */
+  background-color:  #7f8383;
+  border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breadcrumb li {
+  font-size: 1.25rem;
+  margin: 0.2rem 1rem;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #88dfdf;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:active,
+.breadcrumb a.active {
+  color: #e6fcfc;
+}
