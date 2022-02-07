@@ -1,0 +1,84 @@
+.header {
+  height: 8rem;
+  display: flex;
+  padding: 0 5%;
+  align-items: center;
+  flex-direction: column;
+  background-color: #008080;
+}
+
+.header div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding-top: 0.5rem;
+}
+
+.logo {
+  font-size: 3.2rem;
+  color: white;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #88dfdf;
+}
+
+.logo a:hover,
+.logo a:active,
+.logo a.active {
+  color: #e6fcfc;
+}
+
+.breadcrumb ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.breadcrumb{
+  /* margin: 1rem; */
+  background-color:  #7f8383;
+  border-radius: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breadcrumb li {
+  font-size: 1.25rem;
+  margin: 0.2rem 1rem;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #88dfdf;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:active,
+.breadcrumb a.active {
+  color: #e6fcfc;
+}
+
+.nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+.nav p {
+color: #88dfdf;
+  /* padding: 0.25rem 1rem; */
+  margin: 0;
+  padding: 0;
+}
