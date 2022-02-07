@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   width: 90%;
+  padding-top: 0.5rem;
 }
 
 .logo {
@@ -22,10 +23,6 @@
 .logo a {
   text-decoration: none;
   color: #88dfdf;
-}
-
-.nav p {
-  color: white;
 }
 
 .logo a:hover,
@@ -64,4 +61,24 @@
 .breadcrumb a:active,
 .breadcrumb a.active {
   color: #e6fcfc;
+}
+
+.nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+.nav p {
+color: #88dfdf;
+  /* padding: 0.25rem 1rem; */
+  margin: 0;
+  padding: 0;
 }
