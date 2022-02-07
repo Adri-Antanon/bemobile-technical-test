@@ -1,0 +1,29 @@
+.header {
+    height: 8rem;
+    display: flex;
+    padding: 0 10%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #008080;
+  }
+  
+  .logo {
+    font-size: 3.2rem;
+    color: white;
+  }
+
+  .logo a {
+    text-decoration: none;
+    color: #88dfdf;
+  }
+
+  .nav p{
+    color: white;
+  }
+  
+  .logo a:hover,
+  .logo a:active,
+  .logo a.active {
+    color: #e6fcfc;
+  }
+  
