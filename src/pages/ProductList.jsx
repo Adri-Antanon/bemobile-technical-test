@@ -1,10 +1,5 @@
-const ProductList = () => {
-  const title = 'Product List';
-  return (
-    <main>
-      <h2>{title}</h2>
-    </main>
-  );
-};
+import ProductList from '../components/product/ProductList';
 
-export default ProductList;
+const ProductListPage = () => <ProductList />;
+
+export default ProductListPage;

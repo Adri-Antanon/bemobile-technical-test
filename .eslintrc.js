@@ -18,5 +18,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
     'react/prop-types': 'off',
+    'object-curly-newline': 'off',
   },
 };

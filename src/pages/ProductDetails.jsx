@@ -1,4 +1,4 @@
-const ProductDetails = () => {
+const ProductDetailsPage = () => {
   const title = 'Product Details';
   return (
     <main>
@@ -7,4 +7,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default ProductDetailsPage;
