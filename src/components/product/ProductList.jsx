@@ -32,13 +32,15 @@ const ProductList = () => {
 
   return (
     <>
-      <input
-        ref={searchInput}
-        type="text"
-        value={search}
-        onChange={handleSearch}
-        placeholder="Search..."
-      />
+      <div className={styles.search}>
+        <input
+          ref={searchInput}
+          type="text"
+          value={search}
+          onChange={handleSearch}
+          placeholder="Search..."
+        />
+      </div>
       <section className={styles.productList}>
         {productList.map((product) => (
           <ProductListItem key={product.id} product={product} />

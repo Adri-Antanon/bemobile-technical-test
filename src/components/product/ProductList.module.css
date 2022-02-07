@@ -13,3 +13,13 @@
     text-decoration: none;
     color: black;
 }
+
+.search{
+    display: flex;
+    justify-content: end;
+}
+
+.search input{
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
