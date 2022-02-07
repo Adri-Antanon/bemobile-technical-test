@@ -1,0 +1,15 @@
+.productList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 85rem;
+}
+
+.product{
+    height: 20rem;
+    width: 20rem;
+    background-color: rgb(127, 255, 165);
+}
