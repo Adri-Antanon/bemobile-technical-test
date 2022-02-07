@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import products from '../../products.json';
 import LoadingSpinner from '../UI/LoadingSpinner';
 
 import styles from './ProductList.module.css';
+import ProductListItem from './ProductListItem';
 
 const ProductList = () => {
   const [productList, setProductList] = useState([]);
@@ -14,6 +14,8 @@ const ProductList = () => {
   }, []);
 
   if (productList.length === 0) {
+    //   Esto es temporal, para probar el Loading Spinner
+    //  la condición será otra ya que cuando busco puede ser 0
     return (
       <div className="centered">
         <LoadingSpinner />
@@ -24,20 +26,7 @@ const ProductList = () => {
   return (
     <section className={styles.productList}>
       {productList.map((product) => (
-        <Link to={`/products/${product.id}`}>
-          <div key={product.id} className={styles.product}>
-            <div className={styles.image}>
-              <img
-                src={product.imgUrl}
-                alt={`${product.brand} - ${product.model}`}
-              />
-            </div>
-            <div className={styles.text}>
-              <p>{`${product.brand} - ${product.model}`}</p>
-              <p>{`${product.price} €`}</p>
-            </div>
-          </div>
-        </Link>
+        <ProductListItem key={product.id} product={product} />
       ))}
     </section>
   );
