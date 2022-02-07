@@ -2,14 +2,52 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 1rem;
     align-items: center;
     margin: 0 auto;
     max-width: 85rem;
+    padding-top: 3rem;
+}
+
+.productList a{
+    text-decoration: none;
+    color: black;
 }
 
 .product{
-    height: 20rem;
+    height: 25rem;
     width: 20rem;
-    background-color: rgb(127, 255, 165);
+    overflow: hidden;
+    background-color: #f2f8f2;
+
+}
+
+.image{
+    height: 15rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image img{
+    height: 12rem;
+    object-fit: cover;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text p{
+    margin: 1rem 0.5rem;
+    margin-top: 2rem ;
+    font-size: 1.3rem;
+}
+
+.text p:first-child{
+    font-weight: bold;
 }
