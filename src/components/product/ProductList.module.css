@@ -16,10 +16,11 @@
 
 .search{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .search input{
     border-radius: 0.5rem;
     margin: 1rem;
+    margin-right: 10%;
 }
