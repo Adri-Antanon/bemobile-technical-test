@@ -38,9 +38,8 @@
   padding: 0;
   text-align: center;
 }
-.breadcrumb{
-  /* margin: 1rem; */
-  background-color:  #7f8383;
+.breadcrumb {
+  background-color: #7f8383;
   border-radius: 5%;
   display: flex;
   justify-content: center;
@@ -63,7 +62,7 @@
   color: #e6fcfc;
 }
 
-.nav{
+.nav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,8 +76,7 @@
 }
 
 .nav p {
-color: #88dfdf;
-  /* padding: 0.25rem 1rem; */
+  color: #88dfdf;
   margin: 0;
   padding: 0;
 }
