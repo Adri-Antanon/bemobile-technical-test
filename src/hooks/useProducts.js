@@ -58,37 +58,3 @@ const useProducts = (search) => {
 };
 
 export default useProducts;
-
-/*
-Usar locaslStorage, seteamos la fecha que queremos como límite con el tomorrow
-const tomorrow = new Date().getTime() + 1 * 24 * 60 * 60 * 1000;
-      const today = new Date().getTime();
-      // REFACTOR
-      // Copiar en todos los widgets de la home que tenga que cambiar los facets a llamadas únicas
-
-      try {
-        // ALL BARS ON THE DDBB
-        const localTotalBars = await JSON.parse(
-          await localStorage.getItem("widgetBarsTotalBars")
-        );
-        if (!localTotalBars || today > localTotalBars.date) {
-          const totalBars = await API.aggregation({
-            endpoint: "/bars",
-            multiple: true,
-            query: {
-              agg: JSON.stringify([{ $count: "count" }]),
-            },
-          });
-          dataBars.sectors[3].value = totalBars[0].count;
-          await localStorage.setItem(
-            "widgetBarsTotalBars",
-            await JSON.stringify({
-              date: tomorrow,
-              value: totalBars[0].count,
-            })
-          );
-        } else {
-          dataBars.sectors[3].value = localTotalBars.value;
-        }
-
-*/

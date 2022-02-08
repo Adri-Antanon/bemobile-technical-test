@@ -7,5 +7,3 @@ const getExpirationDate = () => {
 };
 
 export default getExpirationDate;
-
-// date:1644324460895
