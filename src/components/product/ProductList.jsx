@@ -1,23 +1,43 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 
-import products from '../../products.json';
 import LoadingSpinner from '../UI/LoadingSpinner';
 
 import styles from './ProductList.module.css';
 import ProductListItem from './ProductListItem';
+import config from '../../config/constants';
 
 const ProductList = () => {
   const [productList, setProductList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState('');
 
   const searchInput = useRef(null);
 
-  useEffect(() => {
-    setProductList(products);
+  const fetchProductsHandler = useCallback(async () => {
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(`${config.API_URL}/product`);
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
+      }
+
+      const devicesData = await response.json();
+
+      setProductList(devicesData);
+    } catch (error) {
+      console.error(error.message);
+    }
+
+    setIsLoading(false);
   }, []);
 
+  useEffect(() => {
+    fetchProductsHandler();
+  }, [fetchProductsHandler]);
+
   const filteredProducts = useMemo(() =>
-    products.filter((product) => {
+    productList.filter((product) => {
       const brandAndModel = `${product.brand}-${product.model}`;
       return brandAndModel.toLowerCase().includes(search.toLowerCase());
     }),
@@ -27,9 +47,7 @@ const ProductList = () => {
     setSearch(searchInput.current.value);
   }, []);
 
-  if (productList.length === 0) {
-    //   Esto es temporal, para probar el Loading Spinner
-    //  la condición será otra ya que cuando busco puede ser 0
+  if (isLoading) {
     return (
       <div className="centered">
         <LoadingSpinner />
