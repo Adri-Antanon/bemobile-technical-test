@@ -26,10 +26,10 @@ const MainNavigation = () => (
       <ul>
         <li>
           <NavLink
-            to={`/products/${12434}`}
+            to="/products"
             className={(navData) => (navData.isActive ? styles.active : '')}
           >
-            Test
+            Products
           </NavLink>
         </li>
       </ul>

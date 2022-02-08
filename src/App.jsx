@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 
-import ProductDetails from './pages/ProductDetails';
-import ProductList from './pages/ProductList';
+import ProductDetailsPage from './pages/ProductDetailsPage';
+import ProductListPage from './pages/ProductListPage';
 import NotFound from './pages/NotFound';
 import Layout from './components/layout/Layout';
 
@@ -10,8 +10,8 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Navigate replace to="/products" />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/products/:productId" element={<ProductDetails />} />
+        <Route path="/products" element={<ProductListPage />} />
+        <Route path="/products/:productId" element={<ProductDetailsPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

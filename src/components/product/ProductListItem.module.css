@@ -3,7 +3,7 @@
     height: 25rem;
     width: 20rem;
     overflow: hidden;
-    background-color: #f2f8f2;
+    background-color: var(--green-100);
 
 }
 
