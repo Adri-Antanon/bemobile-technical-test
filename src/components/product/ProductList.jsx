@@ -1,35 +1,22 @@
-import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import { useRef, useState, useCallback } from 'react';
 
-import products from '../../products.json';
 import LoadingSpinner from '../UI/LoadingSpinner';
 
 import styles from './ProductList.module.css';
 import ProductListItem from './ProductListItem';
+import useProducts from '../../hooks/useProducts';
 
 const ProductList = () => {
-  const [productList, setProductList] = useState([]);
   const [search, setSearch] = useState('');
+  const { filteredProducts, isLoading } = useProducts(search);
 
   const searchInput = useRef(null);
-
-  useEffect(() => {
-    setProductList(products);
-  }, []);
-
-  const filteredProducts = useMemo(() =>
-    products.filter((product) => {
-      const brandAndModel = `${product.brand}-${product.model}`;
-      return brandAndModel.toLowerCase().includes(search.toLowerCase());
-    }),
-  );
 
   const handleSearch = useCallback(() => {
     setSearch(searchInput.current.value);
   }, []);
 
-  if (productList.length === 0) {
-    //   Esto es temporal, para probar el Loading Spinner
-    //  la condición será otra ya que cuando busco puede ser 0
+  if (isLoading) {
     return (
       <div className="centered">
         <LoadingSpinner />
