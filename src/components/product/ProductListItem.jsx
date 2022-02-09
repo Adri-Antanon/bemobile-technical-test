@@ -13,7 +13,7 @@ const ProductListItem = ({ product }) => {
         </div>
         <div className={styles.text}>
           <p>{`${brand} - ${model}`}</p>
-          <p>{`${price} €`}</p>
+          <p>{price ? `${price} €` : 'Free'}</p>
         </div>
       </div>
     </Link>
