@@ -1,26 +1,26 @@
-.productList{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 85rem;
-    padding-top: 3rem;
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 110rem;
+  padding-top: 3rem;
 }
 
-.productList a{
-    text-decoration: none;
-    color: black;
+.productList a {
+  text-decoration: none;
+  color: black;
 }
 
-.search{
-    display: flex;
-    justify-content: flex-end;
+.search {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.search input{
-    border-radius: 0.5rem;
-    margin: 1rem;
-    margin-right: 10%;
+.search input {
+  border-radius: 0.5rem;
+  margin: 1rem;
+  margin-right: 10%;
 }
