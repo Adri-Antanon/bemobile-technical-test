@@ -31,14 +31,12 @@ const ProductDetailsPage = () => {
       />
       <section>
         <ProductDescription product={productDescription} />
-        <article>
-          {productDetail.options && (
-            <ProductActions
-              options={productDetail.options}
-              productId={productDetail.id}
-            />
-          )}
-        </article>
+        {productDetail.options && (
+          <ProductActions
+            options={productDetail.options}
+            productId={productDetail.id}
+          />
+        )}
       </section>
     </DetailContainer>
   );

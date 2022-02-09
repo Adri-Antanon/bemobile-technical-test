@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 
 import config from '../../config/constants';
 
+import styles from './ProductActions.module.css';
+
 const ProductActions = ({ options, productId }) => {
   const { register, handleSubmit } = useForm();
   const [productInfo, setProductInfo] = useState('');
@@ -29,40 +31,43 @@ const ProductActions = ({ options, productId }) => {
   }, [productInfo, addToCart]);
 
   return (
-    <form
-      onSubmit={handleSubmit((data) => {
-        const { color, storage } = data;
-        setProductInfo({
-          id: productId,
-          colorCode: color,
-          storageCode: storage,
-        });
-      })}
-    >
-      <select {...register('color')}>
-        {colors.length > 0 ? (
-          colors.map((color) => (
-            <option key={color.code} value={color.code}>
-              {color.name}
-            </option>
-          ))
-        ) : (
-          <option disabled> No Colors</option>
-        )}
-      </select>
-      <select {...register('storage')}>
-        {storages.length > 0 ? (
-          storages.map((storage) => (
-            <option key={storage.code} value={storage.code}>
-              {storage.name}
-            </option>
-          ))
-        ) : (
-          <option disabled>No Storages</option>
-        )}
-      </select>
-      <input value="Add to Cart" type="submit" />
-    </form>
+    <article className={styles.actions}>
+      <h3>Actions</h3>
+      <form
+        onSubmit={handleSubmit((data) => {
+          const { color, storage } = data;
+          setProductInfo({
+            id: productId,
+            colorCode: color,
+            storageCode: storage,
+          });
+        })}
+      >
+        <div className={styles.selectContainer}>
+          <p>Color</p>
+          <p>Storage</p>
+        </div>
+        <div className={styles.selectContainer}>
+          <select id="color" {...register('color')}>
+            {colors.map((color) => (
+              <option key={color.code} value={color.code}>
+                {color.name}
+              </option>
+            ))}
+          </select>
+          <select {...register('storage')}>
+            {storages.map((storage) => (
+              <option key={storage.code} value={storage.code}>
+                {storage.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className={styles.inputContainer}>
+          <input value="Add to Cart" type="submit" />
+        </div>
+      </form>
+    </article>
   );
 };
 
