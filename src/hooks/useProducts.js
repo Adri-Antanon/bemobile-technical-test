@@ -1,5 +1,5 @@
 import { useMemo, useCallback, useState, useEffect } from 'react';
-import getExpirationDate from '../components/helpers/expirationTime';
+import getExpirationDate from '../helpers/expirationTime';
 
 import config from '../config/constants';
 

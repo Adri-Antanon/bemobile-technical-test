@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 
 import config from '../config/constants';
-import getExpirationDate from '../components/helpers/expirationTime';
+import getExpirationDate from '../helpers/expirationTime';
 
 const useProductDetail = (productId) => {
   const [productDetail, setProductDetail] = useState({});
