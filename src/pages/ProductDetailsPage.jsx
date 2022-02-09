@@ -1,45 +1,32 @@
+import { useParams } from 'react-router-dom';
+
 import ProductDescription from '../components/product/ProductDescription';
 import ProductImage from '../components/product/ProductImage';
 import DetailContainer from '../components/UI/DetailContainer';
+import LoadingSpinner from '../components/UI/LoadingSpinner';
 
-import product from '../product.json';
+import useProductDetail from '../hooks/useProductDetail';
 
 const ProductDetailsPage = () => {
-  const {
-    brand,
-    model,
-    price,
-    cpu,
-    ram,
-    os,
-    displayResolution,
-    battery,
-    primaryCamera,
-    secondaryCmera,
-    dimentions,
-    weight,
-  } = product;
+  const params = useParams();
 
-  const productDescription = {
-    brand,
-    model,
-    price,
-    cpu,
-    ram,
-    os,
-    displayResolution,
-    battery,
-    primaryCamera,
-    secondaryCmera,
-    dimentions,
-    weight,
-  };
+  const { isLoading, productDescription, productDetail } = useProductDetail(
+    params.productId,
+  );
+
+  if (isLoading) {
+    return (
+      <div className="centered">
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   return (
     <DetailContainer>
       <ProductImage
-        imgUrl={product.imgUrl}
-        name={`${product.brand}-${product.model}`}
+        imgUrl={productDetail.imgUrl}
+        name={`${productDetail.brand}-${productDetail.model}`}
       />
       <section>
         <ProductDescription product={productDescription} />
