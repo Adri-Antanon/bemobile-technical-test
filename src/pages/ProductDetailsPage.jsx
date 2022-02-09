@@ -32,10 +32,12 @@ const ProductDetailsPage = () => {
       <section>
         <ProductDescription product={productDescription} />
         <article>
-          <ProductActions
-            options={productDetail.options}
-            productId={productDetail.id}
-          />
+          {productDetail.options && (
+            <ProductActions
+              options={productDetail.options}
+              productId={productDetail.id}
+            />
+          )}
         </article>
       </section>
     </DetailContainer>
