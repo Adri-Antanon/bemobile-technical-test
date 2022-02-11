@@ -1,34 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
 import config from '../../config/constants';
+import CartContext from '../../store/cart-context';
 
 import styles from './ProductActions.module.css';
 
 const ProductActions = ({ options, productId }) => {
   const { register, handleSubmit } = useForm();
   const [productInfo, setProductInfo] = useState('');
+  const cartCtx = useContext(CartContext);
 
   const { colors, storages } = options;
 
-  const addToCart = async (product) => {
-    const response = await fetch(`${config.API_URL}/cart`, {
-      method: 'POST',
-      body: JSON.stringify(product),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    const cartAmount = await response.json();
-    console.log(cartAmount);
-  };
-
   useEffect(() => {
+    const addToCart = async (product) => {
+      const response = await fetch(`${config.API_URL}/cart`, {
+        method: 'POST',
+        body: JSON.stringify(product),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const cartData = await response.json();
+
+      cartCtx.addToCart(cartData.count);
+    };
+
     if (productInfo) {
       addToCart(productInfo);
     }
-  }, [productInfo, addToCart]);
+  }, [productInfo]);
 
   return (
     <article className={styles.actions}>

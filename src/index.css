@@ -1,4 +1,4 @@
-:root{
+:root {
   --blue-900: #008080;
   --blue-500: #88dfdf;
   --blue-100: #e6fcfc;
@@ -6,7 +6,6 @@
   --green-500: rgb(202, 243, 141);
   --green-300: #d5e8d4;
   --green-100: #f2f8f2;
-
 }
 
 html {
@@ -36,7 +35,7 @@ code {
   align-items: center;
 }
 
-.column{
+.column {
   flex-direction: column;
 }
 
