@@ -1,18 +1,9 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 
 import CartContext from './cart-context';
 
-// const totalQuantitySaved = await JSON.parse(
-//   localStorage.getItem('totalQuantity'),
-// );
-
-const defaultCartState = {
-  totalQuantity: 0,
-};
-
 const ADD = 'ADD';
 
-// eslint-disable-next-line default-param-last
 const cartReducer = (state, action) => {
   switch (action.type) {
     case ADD: {
@@ -28,15 +19,35 @@ const cartReducer = (state, action) => {
 const CartProvider = ({ children }) => {
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
-    defaultCartState,
+    { totalQuantity: 0 },
   );
+
   const addItemToCartHandler = (count) => {
     dispatchCartAction({ type: ADD, count });
   };
 
+  let totalQuantity;
+
+  useEffect(() => {
+    const totalQuantityData = localStorage.getItem('totalQuantity');
+
+    const totalQuantitySaved = totalQuantityData && JSON.parse(totalQuantityData);
+
+    if (totalQuantitySaved) {
+      totalQuantity = totalQuantitySaved;
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      'totalQuantity',
+      JSON.stringify(cartState.totalQuantity),
+    );
+  }, [cartState.totalQuantity]);
+
   // eslint-disable-next-line react/jsx-no-constructed-context-values
   const cartContext = {
-    totalQuantity: cartState.totalQuantity,
+    totalQuantity: totalQuantity ?? cartState.totalQuantity,
     addToCart: addItemToCartHandler,
   };
 

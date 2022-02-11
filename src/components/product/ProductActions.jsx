@@ -26,11 +26,6 @@ const ProductActions = ({ options, productId }) => {
       const cartData = await response.json();
 
       cartCtx.addToCart(cartData.count);
-
-      // localStorage.setItem(
-      //   'totalQuantity',
-      //   JSON.stringify(cartCtx.totalQuantity),
-      // );
     };
 
     if (productInfo) {

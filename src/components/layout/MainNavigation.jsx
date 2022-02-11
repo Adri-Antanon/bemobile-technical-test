@@ -9,8 +9,6 @@ import styles from './MainNavigation.module.css';
 const MainNavigation = () => {
   const cartCtx = useContext(CartContext);
 
-  console.log(cartCtx.totalQuantity);
-
   const numberOfCartItems = cartCtx.totalQuantity;
 
   return (
