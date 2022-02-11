@@ -1,40 +1,50 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import CartIcon from './CartIcon';
+import CartContext from '../../store/cart-context';
 
 import styles from './MainNavigation.module.css';
 
-const MainNavigation = () => (
-  <header className={styles.header}>
-    <div>
-      <div className={styles.logo}>
-        <NavLink
-          to="/products"
-          className={(navData) => (navData.isActive ? styles.active : '')}
-        >
-          Bemobile
-        </NavLink>
-      </div>
-      <nav className={styles.nav}>
-        <span className={styles.icon}>
-          <CartIcon />
-        </span>
-        <p>{3}</p>
-      </nav>
-    </div>
-    <nav className={styles.breadcrumb}>
-      <ul>
-        <li>
+const MainNavigation = () => {
+  const cartCtx = useContext(CartContext);
+
+  console.log(cartCtx.totalQuantity);
+
+  const numberOfCartItems = cartCtx.totalQuantity;
+
+  return (
+    <header className={styles.header}>
+      <div>
+        <div className={styles.logo}>
           <NavLink
             to="/products"
             className={(navData) => (navData.isActive ? styles.active : '')}
           >
-            Products
+            Bemobile
           </NavLink>
-        </li>
-      </ul>
-    </nav>
-  </header>
-);
+        </div>
+        <nav className={styles.nav}>
+          <span className={styles.icon}>
+            <CartIcon />
+          </span>
+          <p>{numberOfCartItems}</p>
+        </nav>
+      </div>
+      <nav className={styles.breadcrumb}>
+        <ul>
+          <li>
+            <NavLink
+              to="/products"
+              className={(navData) => (navData.isActive ? styles.active : '')}
+            >
+              Products
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
 
 export default MainNavigation;
