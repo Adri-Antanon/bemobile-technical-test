@@ -1,53 +1,41 @@
-import { useReducer, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import CartContext from './cart-context';
+import getExpirationDate from '../helpers/expirationTime';
 
-const ADD = 'ADD';
+const localStorageData = JSON.parse(localStorage.getItem('totalQuantity'));
 
-const cartReducer = (state, action) => {
-  switch (action.type) {
-    case ADD: {
-      return {
-        totalQuantity: state.totalQuantity + action.count,
-      };
-    }
-    default:
-      return state;
-  }
-};
+let stampedValue;
+if (localStorageData !== null) {
+  stampedValue = localStorageData.value;
+}
 
 const CartProvider = ({ children }) => {
-  const [cartState, dispatchCartAction] = useReducer(
-    cartReducer,
-    { totalQuantity: 0 },
-  );
+  const [totalQuantity, setTotalQuantity] = useState(stampedValue || 0);
+  const { expirationDate, today } = getExpirationDate();
+  const expirationDateRef = useRef(expirationDate).current;
 
   const addItemToCartHandler = (count) => {
-    dispatchCartAction({ type: ADD, count });
+    setTotalQuantity((prevValue) => prevValue + count);
   };
 
-  let totalQuantity;
-
   useEffect(() => {
-    const totalQuantityData = localStorage.getItem('totalQuantity');
-
-    const totalQuantitySaved = totalQuantityData && JSON.parse(totalQuantityData);
-
-    if (totalQuantitySaved) {
-      totalQuantity = totalQuantitySaved;
+    if (today > localStorageData.date) {
+      localStorage.removeItem('totalQuantity');
     }
-  }, []);
 
-  useEffect(() => {
     localStorage.setItem(
       'totalQuantity',
-      JSON.stringify(cartState.totalQuantity),
+      JSON.stringify({
+        date: expirationDateRef,
+        value: totalQuantity,
+      }),
     );
-  }, [cartState.totalQuantity]);
+  }, [totalQuantity]);
 
   // eslint-disable-next-line react/jsx-no-constructed-context-values
   const cartContext = {
-    totalQuantity: totalQuantity ?? cartState.totalQuantity,
+    totalQuantity,
     addToCart: addItemToCartHandler,
   };
 
