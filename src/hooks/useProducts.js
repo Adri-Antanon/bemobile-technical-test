@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useState, useEffect } from 'react';
+import { useMemo, useCallback, useState, useEffect, useRef } from 'react';
 import getExpirationDate from '../helpers/expirationTime';
 
 import config from '../config/constants';
@@ -6,11 +6,13 @@ import config from '../config/constants';
 const useProducts = (search) => {
   const [productList, setProductList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { expirationDate } = getExpirationDate();
+  const expirationDateRef = useRef(expirationDate).current;
 
   const fetchProductsHandler = useCallback(async () => {
     setIsLoading(true);
 
-    const { expirationDate, today } = getExpirationDate();
+    const { today } = getExpirationDate();
 
     try {
       const products = await JSON.parse(localStorage.getItem('products'));
@@ -25,7 +27,7 @@ const useProducts = (search) => {
         localStorage.setItem(
           'products',
           JSON.stringify({
-            date: expirationDate,
+            date: expirationDateRef,
             value: devicesData,
           }),
         );
