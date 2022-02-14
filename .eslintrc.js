@@ -21,5 +21,6 @@ module.exports = {
     'object-curly-newline': 'off',
     'function-paren-newline': 'off',
     'implicit-arrow-linebreak': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };

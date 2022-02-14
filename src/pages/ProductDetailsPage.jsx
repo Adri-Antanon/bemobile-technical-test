@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import ProductActions from '../components/product/ProductActions';
 
 import ProductDescription from '../components/product/ProductDescription';
 import ProductImage from '../components/product/ProductImage';
@@ -30,7 +31,12 @@ const ProductDetailsPage = () => {
       />
       <section>
         <ProductDescription product={productDescription} />
-        <article>ACTIONS</article>
+        {productDetail.options && (
+          <ProductActions
+            options={productDetail.options}
+            productId={productDetail.id}
+          />
+        )}
       </section>
     </DetailContainer>
   );

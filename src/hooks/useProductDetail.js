@@ -1,16 +1,18 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 
 import config from '../config/constants';
-import getExpirationDate from '../components/helpers/expirationTime';
+import getExpirationDate from '../helpers/expirationTime';
 
 const useProductDetail = (productId) => {
   const [productDetail, setProductDetail] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const { expirationDate } = getExpirationDate();
+  const expirationDateRef = useRef(expirationDate).current;
 
   const fetchProductDetailHandler = useCallback(async () => {
     setIsLoading(true);
 
-    const { expirationDate, today } = getExpirationDate();
+    const { today } = getExpirationDate();
 
     try {
       const product = await JSON.parse(localStorage.getItem(productId));
@@ -25,7 +27,7 @@ const useProductDetail = (productId) => {
         localStorage.setItem(
           productId,
           JSON.stringify({
-            date: expirationDate,
+            date: expirationDateRef,
             value: deviceData,
           }),
         );
